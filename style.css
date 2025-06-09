@@ -82,13 +82,17 @@
     box-shadow: 0 0 12px var(--primary);
   }
   
-  .impact-section {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
+  .impact-section, .opportunities-section, .collab-section {
     padding: 4rem 2rem;
-    background-color: var(--gray);
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .impact-grid, .collab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
   }
   
   .impact-box {
@@ -96,9 +100,10 @@
     padding: 2rem;
     border-radius: 1rem;
     text-align: center;
-    width: 250px;
     box-shadow: 0 0 25px rgba(255, 59, 63, 0.15);
     transition: transform 0.3s ease;
+    text-decoration: none;
+    color: var(--text);
   }
   
   .impact-box:hover {
@@ -108,29 +113,62 @@
   .impact-box h2 {
     color: var(--primary);
     font-size: 2rem;
+    margin-bottom: 1rem;
   }
   
   .impact-box p {
     margin-top: 0.5rem;
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   
-  section {
+  .impact-box ul {
+    list-style: none;
+    text-align: left;
+    margin-top: 1rem;
+  }
+  
+  .impact-box ul li {
+    margin: 0.5rem 0;
+  }
+  
+  .mission-section {
     padding: 4rem 2rem;
-    max-width: 900px;
+    max-width: 1200px;
     margin: auto;
   }
   
-  section h2 {
-    color: var(--primary);
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    text-align: center;
+  .mission-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
   }
   
-  section p {
-    font-size: 1.1rem;
+  .mission-point {
     text-align: center;
+    padding: 2rem;
+  }
+  
+  .mission-point h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+  
+  .coming-soon {
+    text-align: center;
+    padding: 8rem 2rem;
+  }
+  
+  .coming-soon h1 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+  
+  .coming-soon p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
   }
   
   footer {
@@ -139,5 +177,20 @@
     padding: 2rem;
     font-size: 0.9rem;
     border-top: 1px solid #eee;
+  }
+  
+  .counter {
+    transition: color 0.3s ease;
+    display: inline-block;
+  }
+  
+  .counter::after {
+    content: '+';
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  .counter.finished::after {
+    opacity: 1;
   }
   
