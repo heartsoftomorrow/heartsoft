@@ -1,0 +1,143 @@
+:root {
+    --primary: #ff3b3f;
+    --light: #ffffff;
+    --gray: #f5f5f5;
+    --text: #222222;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+  
+  body {
+    background-color: var(--light);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  
+  header {
+    background-color: var(--light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    position: relative;
+  }
+  
+  nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: 0.3s ease;
+  }
+  
+  nav a:hover::after {
+    width: 100%;
+  }
+  
+  .hero {
+    text-align: center;
+    padding: 5rem 2rem;
+    background: radial-gradient(circle at center, #ffe5e5, #ffffff);
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 999px;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .btn:hover {
+    box-shadow: 0 0 12px var(--primary);
+  }
+  
+  .impact-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 4rem 2rem;
+    background-color: var(--gray);
+  }
+  
+  .impact-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    width: 250px;
+    box-shadow: 0 0 25px rgba(255, 59, 63, 0.15);
+    transition: transform 0.3s ease;
+  }
+  
+  .impact-box:hover {
+    transform: scale(1.05);
+  }
+  
+  .impact-box h2 {
+    color: var(--primary);
+    font-size: 2rem;
+  }
+  
+  .impact-box p {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  section {
+    padding: 4rem 2rem;
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  section h2 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  section p {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  
+  footer {
+    background-color: var(--light);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    border-top: 1px solid #eee;
+  }
+  
