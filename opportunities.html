@@ -7,44 +7,137 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h2>Hearts of Tomorrow</h2>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="opportunities.html">Opportunities</a>
-      <a href="collaborate.html">Collaborate</a>
-    </nav>
-  </header>
+  <div class="container">
+    <section class="hero">
+      <h1>Make an Impact</h1>
+      <p>Choose your path to revolutionize heart health education.</p>
+    </section>
 
-  <section class="hero">
-    <h1>Get Involved</h1>
-    <p>Choose your path to make a difference in heart health.</p>
-  </section>
-
-  <section class="opportunities-section">
-    <div class="impact-grid">
-      <a href="open-chapter.html" class="impact-box">
+    <div class="bento-grid">
+      <a href="open-chapter.html" class="bento-box large">
         <h2>Open a Chapter</h2>
-        <p>Start a Hearts of Tomorrow chapter in your school or community</p>
+        <p>Start a Hearts of Tomorrow chapter in your school or community.</p>
+        <ul style="list-style: none; margin-top: 1rem;">
+          <li>🏫 Connect with local schools</li>
+          <li>👥 Build your student team</li>
+          <li>📚 Access our resources</li>
+          <li>🌟 Lead community initiatives</li>
+        </ul>
       </a>
-      <a href="volunteering.html" class="impact-box">
+
+      <div class="chart-container">
+        <h3>Chapter Growth</h3>
+        <div class="bar-chart" id="chapterGrowthChart">
+          <div class="bar" style="height: 20%" data-value="3" data-label="2021"></div>
+          <div class="bar" style="height: 40%" data-value="8" data-label="2022"></div>
+          <div class="bar" style="height: 70%" data-value="15" data-label="2023"></div>
+          <div class="bar" style="height: 100%" data-value="25" data-label="2024"></div>
+        </div>
+      </div>
+
+      <a href="volunteering.html" class="bento-box medium">
         <h2>Volunteering</h2>
-        <p>Join our volunteer programs and make a direct impact</p>
+        <p>Join our volunteer programs and make a direct impact through:</p>
+        <ul style="list-style: none; margin-top: 1rem;">
+          <li>🎓 Education Programs</li>
+          <li>💝 Community Events</li>
+          <li>🤝 Outreach Initiatives</li>
+        </ul>
       </a>
-      <a href="app.html" class="impact-box">
+
+      <div class="chart-container">
+        <h3>Volunteer Impact</h3>
+        <div class="circle-chart" id="volunteerChart">
+          <svg viewBox="0 0 100 100">
+            <circle class="background" cx="50" cy="50" r="45"/>
+            <circle class="progress" cx="50" cy="50" r="45" data-percentage="85"/>
+          </svg>
+          <div class="chart-label">
+            <div class="metric-value">85%</div>
+            <div class="metric-label">Community Satisfaction</div>
+          </div>
+        </div>
+      </div>
+
+      <a href="app.html" class="bento-box medium">
         <h2>The App</h2>
-        <p>Help develop our heart health education app</p>
+        <p>Help develop our heart health education app:</p>
+        <ul style="list-style: none; margin-top: 1rem;">
+          <li>💻 Code Development</li>
+          <li>🎨 UI/UX Design</li>
+          <li>📱 Content Creation</li>
+        </ul>
       </a>
-      <a href="education.html" class="impact-box">
+
+      <a href="education.html" class="bento-box medium">
         <h2>Heart Education</h2>
-        <p>Create and share heart health educational resources</p>
+        <p>Create and share educational resources:</p>
+        <ul style="list-style: none; margin-top: 1rem;">
+          <li>📖 Curriculum Design</li>
+          <li>🎥 Video Content</li>
+          <li>📊 Research Projects</li>
+        </ul>
+      </a>
+
+      <div class="metric-card">
+        <h3>Active Volunteers</h3>
+        <div class="metric-value" id="volunteerCount">150</div>
+        <div class="metric-label">Making a Difference</div>
+      </div>
+
+      <div class="metric-card">
+        <h3>Active Chapters</h3>
+        <div class="metric-value" id="activeChapters">25</div>
+        <div class="metric-label">And Growing</div>
+      </div>
+
+      <div class="metric-card">
+        <h3>People Reached</h3>
+        <div class="metric-value" id="peopleReached">5000</div>
+        <div class="metric-label">Through Programs</div>
+      </div>
+
+      <a href="index.html" class="bento-box small">
+        <h2>Home</h2>
+        <p>Return to main page</p>
       </a>
     </div>
-  </section>
+  </div>
 
   <footer>
     <p>&copy; 2025 Hearts of Tomorrow. All rights reserved.</p>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize circle chart
+      const circle = document.querySelector('.circle-chart .progress');
+      const percentage = circle.getAttribute('data-percentage');
+      const circumference = 2 * Math.PI * 45;
+      circle.style.strokeDasharray = `${(percentage * circumference) / 100} ${circumference}`;
+
+      // Counter animation
+      const counters = document.querySelectorAll('.metric-value');
+      counters.forEach(counter => {
+        const target = parseInt(counter.innerText);
+        let count = 0;
+        const duration = 2000;
+        const increment = target / (duration / 16);
+
+        const updateCount = () => {
+          if (count < target) {
+            count += increment;
+            counter.innerText = Math.round(count);
+            requestAnimationFrame(updateCount);
+          } else {
+            counter.innerText = target;
+          }
+        };
+
+        updateCount();
+      });
+    });
+  </script>
 </body>
 </html>
 

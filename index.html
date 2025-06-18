@@ -7,67 +7,147 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h2>Hearts of Tomorrow</h2>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="opportunities.html">Opportunities</a>
-      <a href="collaborate.html">Collaborate</a>
-    </nav>
-  </header>
+  <div class="container">
+    <section class="hero">
+      <h1>Youth-Powered Prevention</h1>
+      <p>Fighting cardiovascular disease through practical solutions and student innovation.</p>
+      <a href="https://www.instagram.com/heartsoftmrw/" class="social-icon" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24">
+          <rect x="2" y="2" width="20" height="20" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17" cy="7" r="1" />
+        </svg>
+      </a>
+    </section>
 
-  <section class="hero">
-    <h1>Youth-Powered Prevention</h1>
-    <p>Fighting cardiovascular disease through practical solutions and student innovation.</p>
-    <a class="btn" href="opportunities.html">Get Involved</a>
-  </section>
+    <div class="bento-grid">
+      <div class="bento-box large">
+        <h2>Our Mission</h2>
+        <p>Hearts of Tomorrow is revolutionizing heart disease prevention through practical, youth-driven solutions.</p>
+      </div>
 
-  <section class="mission-section">
-    <h2>Our Mission</h2>
-    <p>Hearts of Tomorrow is revolutionizing heart disease prevention through practical, youth-driven solutions. We believe in:</p>
-    <div class="mission-points">
-      <div class="mission-point">
-        <h3>Practical Impact</h3>
-        <p>Creating tangible solutions that directly benefit communities - from heart-healthy food donations to accessible education materials.</p>
+      <a href="opportunities.html" class="bento-box small">
+        <h2>Opportunities</h2>
+        <p>Make an impact</p>
+      </a>
+
+      <div class="chart-container">
+        <h3>Cardiovascular Disease Impact</h3>
+        <div class="circle-chart">
+          <svg viewBox="0 0 100 100">
+            <circle 
+              cx="50" 
+              cy="50" 
+              r="40" 
+              fill="none" 
+              stroke="#f0f0f0" 
+              stroke-width="6"
+            />
+            <path
+              d="M50 10 A40 40 0 0 1 89.6 50"
+              fill="none"
+              stroke="#8b44ff"
+              stroke-width="6"
+              stroke-linecap="round"
+            />
+          </svg>
+          <div class="chart-label">
+            <div class="metric-value" style="color: #e01b24;">31</div>
+            <div class="metric-label">of global deaths</div>
+          </div>
+        </div>
       </div>
-      <div class="mission-point">
-        <h3>Youth Innovation</h3>
-        <p>Empowering students to lead change through chapter leadership, tech development, and community outreach programs.</p>
+
+      <div class="bento-box medium">
+        <h2>Impact Story</h2>
+        <p>Project Heartbeat: School Screening Initiative</p>
+        <ul style="list-style: none; margin-top: 1rem;">
+          <li>🏫 15 Schools Reached</li>
+          <li>💗 500+ Students Screened</li>
+          <li>🌟 3 Lives Saved</li>
+        </ul>
       </div>
-      <div class="mission-point">
-        <h3>Prevention First</h3>
-        <p>Focusing on preventative education and early intervention to create lasting change in heart health outcomes.</p>
+
+      <a href="datasets.html" class="bento-box small">
+        <h2>Research Data</h2>
+        <p>Explore insights</p>
+      </a>
+
+      <div class="chart-container">
+        <h3>Prevention Impact</h3>
+        <div class="bar-chart" id="preventionChart">
+          <div class="bar" style="height: 90%" data-value="90%" data-label="Education"></div>
+          <div class="bar" style="height: 75%" data-value="75%" data-label="Screening"></div>
+          <div class="bar" style="height: 85%" data-value="85%" data-label="Lifestyle"></div>
+          <div class="bar" style="height: 70%" data-value="70%" data-label="Support"></div>
+        </div>
+      </div>
+
+      <a href="collaborate.html" class="bento-box small">
+        <h2>Collaborate</h2>
+        <p>Partner with us</p>
+      </a>
+
+      <div class="metric-card large">
+        <h3>Our Impact</h3>
+        <div class="metric-value" id="chapterCount">25</div>
+        <div class="metric-label">Student Chapters</div>
+        <p class="metric-description">Active chapters across schools nationwide</p>
+      </div>
+
+      <div class="metric-card large">
+        <h3>Donations</h3>
+        <div class="metric-value" id="donationCount">5000</div>
+        <div class="metric-label">Heart-Healthy Food Items</div>
+        <p class="metric-description">Distributed to communities in need</p>
+      </div>
+
+      <div class="metric-card large">
+        <h3>Education</h3>
+        <div class="metric-value" id="educationCount">10000</div>
+        <div class="metric-label">People Reached</div>
+        <p class="metric-description">Through our programs and initiatives</p>
       </div>
     </div>
-  </section>
-
-  <section class="impact-section">
-    <h2>Our Impact</h2>
-    <div class="impact-grid">
-      <div class="impact-box">
-        <h2 class="counter" data-target="0">0</h2>
-        <p>Student Chapters</p>
-      </div>
-      <div class="impact-box">
-        <h2 class="counter" data-target="0">0</h2>
-        <p>Heart Healthy Goods Donated</p>
-      </div>
-      <div class="impact-box">
-        <h2 class="counter" data-target="0">0</h2>
-        <p>Pamphlets Distributed</p>
-      </div>
-      <div class="impact-box">
-        <h2>1</h2>
-        <p>App in Development</p>
-      </div>
-    </div>
-  </section>
+  </div>
 
   <footer>
     <p>&copy; 2025 Hearts of Tomorrow. All rights reserved.</p>
   </footer>
-  <script src="script.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Counter animation
+      const counters = document.querySelectorAll('.metric-value');
+      counters.forEach(counter => {
+        const target = parseInt(counter.innerText);
+        let count = 0;
+        const duration = 2000;
+        const increment = target / (duration / 16);
+
+        const updateCount = () => {
+          if (count < target) {
+            count += increment;
+            counter.innerText = Math.round(count);
+            requestAnimationFrame(updateCount);
+          } else {
+            counter.innerText = target;
+          }
+        };
+
+        updateCount();
+      });
+
+      // Initialize circle chart animations
+      const circles = document.querySelectorAll('.circle-chart .progress');
+      circles.forEach(circle => {
+        const percentage = circle.getAttribute('data-percentage');
+        const circumference = 2 * Math.PI * 45;
+        const offset = circumference - (percentage / 100) * circumference;
+        circle.style.strokeDasharray = `${circumference - offset} ${circumference}`;
+      });
+    });
+  </script>
 </body>
 </html>
-
 

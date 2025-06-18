@@ -7,40 +7,147 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h2>Hearts of Tomorrow</h2>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="opportunities.html">Opportunities</a>
-      <a href="collaborate.html">Collaborate</a>
-    </nav>
-  </header>
+  <div class="container">
+    <section class="hero">
+      <h1>Collaborate With Us</h1>
+      <p>Join us in making a difference in heart health education and prevention.</p>
+    </section>
 
-  <section class="hero">
-    <h1>Collaborate With Us</h1>
-    <p>Join us in making a difference in heart health education and prevention.</p>
-  </section>
-
-  <section class="opportunities-section">
-    <div class="impact-grid">
-      <a href="join-team.html" class="impact-box">
+    <div class="bento-grid">
+      <a href="join-team.html" class="bento-box large">
         <h2>Join Our Team</h2>
-        <p>Explore executive and member positions to help lead Hearts of Tomorrow's mission</p>
+        <p>Be part of a dynamic team driving innovation in heart health education. We're looking for passionate individuals to:</p>
+        <ul style="list-style: none; margin-top: 1rem;">
+          <li>🚀 Lead chapter initiatives and community outreach</li>
+          <li>💡 Develop creative solutions for heart health awareness</li>
+          <li>🤝 Build partnerships with healthcare organizations</li>
+          <li>📊 Analyze impact data and improve our programs</li>
+        </ul>
+        <div class="positions-grid">
+          <div class="position-card">
+            <h3>Chapter Development Lead</h3>
+            <p>Guide and support new chapter formations across schools and communities.</p>
+          </div>
+          <div class="position-card">
+            <h3>Technology Innovation Lead</h3>
+            <p>Drive the development of our heart health education app and digital tools.</p>
+          </div>
+          <div class="position-card">
+            <h3>Community Outreach Coordinator</h3>
+            <p>Organize and manage community health education events and programs.</p>
+          </div>
+        </div>
       </a>
-      <a href="partnerships.html" class="impact-box">
+
+      <div class="chart-container">
+        <h3>Team Growth</h3>
+        <div class="bar-chart" id="teamGrowthChart">
+          <div class="bar" style="height: 30%" data-value="5" data-label="2021"></div>
+          <div class="bar" style="height: 60%" data-value="12" data-label="2022"></div>
+          <div class="bar" style="height: 85%" data-value="24" data-label="2023"></div>
+          <div class="bar" style="height: 100%" data-value="35" data-label="2024"></div>
+        </div>
+      </div>
+
+      <a href="partnerships.html" class="bento-box medium">
         <h2>Partnerships</h2>
-        <p>Partner with us to expand our reach and impact in heart health education</p>
+        <p>Create lasting impact through strategic collaboration. Our partners benefit from:</p>
+        <ul style="list-style: none; margin-top: 1rem;">
+          <li>🏥 Direct community health impact</li>
+          <li>🎓 Access to youth innovation</li>
+          <li>📈 Data-driven results</li>
+        </ul>
       </a>
-      <a href="contact.html" class="impact-box">
+
+      <div class="chart-container">
+        <h3>Partnership Impact</h3>
+        <div class="circle-chart" id="partnershipChart">
+          <svg viewBox="0 0 100 100">
+            <circle class="background" cx="50" cy="50" r="45"/>
+            <circle class="progress" cx="50" cy="50" r="45" data-percentage="75"/>
+          </svg>
+          <div class="chart-label">
+            <div class="metric-value">75%</div>
+            <div class="metric-label">Community Reach Increase</div>
+          </div>
+        </div>
+      </div>
+
+      <a href="contact.html" class="bento-box medium">
         <h2>Contact Us</h2>
-        <p>Get in touch to discuss collaboration opportunities</p>
+        <p>Have questions or ideas? We'd love to hear from you!</p>
+        <p style="margin-top: 1rem;">Our team typically responds within 24 hours to discuss:</p>
+        <ul style="list-style: none; margin-top: 0.5rem;">
+          <li>📧 Collaboration opportunities</li>
+          <li>🤝 Partnership proposals</li>
+          <li>💡 Innovation ideas</li>
+        </ul>
+      </a>
+
+      <div class="metric-card">
+        <h3>Active Partners</h3>
+        <div class="metric-value" id="partnerCount">15</div>
+        <div class="metric-label">Organizations</div>
+      </div>
+
+      <div class="metric-card">
+        <h3>Team Members</h3>
+        <div class="metric-value" id="teamCount">35</div>
+        <div class="metric-label">Passionate Individuals</div>
+      </div>
+
+      <div class="metric-card">
+        <h3>Projects</h3>
+        <div class="metric-value" id="projectCount">8</div>
+        <div class="metric-label">Active Initiatives</div>
+      </div>
+
+      <a href="index.html" class="bento-box small">
+        <h2>Home</h2>
+        <p>Return to main page</p>
+      </a>
+
+      <a href="datasets.html" class="bento-box small">
+        <h2>Research Data</h2>
+        <p>Explore our findings</p>
       </a>
     </div>
-  </section>
+  </div>
 
   <footer>
     <p>&copy; 2025 Hearts of Tomorrow. All rights reserved.</p>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize circle chart
+      const circle = document.querySelector('.circle-chart .progress');
+      const percentage = circle.getAttribute('data-percentage');
+      const circumference = 2 * Math.PI * 45;
+      circle.style.strokeDasharray = `${(percentage * circumference) / 100} ${circumference}`;
+
+      // Counter animation
+      const counters = document.querySelectorAll('.metric-value');
+      counters.forEach(counter => {
+        const target = parseInt(counter.innerText);
+        let count = 0;
+        const duration = 2000;
+        const increment = target / (duration / 16);
+
+        const updateCount = () => {
+          if (count < target) {
+            count += increment;
+            counter.innerText = Math.round(count);
+            requestAnimationFrame(updateCount);
+          } else {
+            counter.innerText = target;
+          }
+        };
+
+        updateCount();
+      });
+    });
+  </script>
 </body>
 </html>
 

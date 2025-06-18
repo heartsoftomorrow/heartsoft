@@ -7,24 +7,115 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h2>Hearts of Tomorrow</h2>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="opportunities.html">Opportunities</a>
-      <a href="collaborate.html">Collaborate</a>
-    </nav>
-  </header>
+  <div class="container">
+    <section class="hero">
+      <h1>Start a Chapter</h1>
+      <p>Lead the change in heart health education in your community.</p>
+    </section>
 
-  <section class="coming-soon">
-    <h1>Start a Chapter</h1>
-    <p>We're preparing resources to help you launch a Hearts of Tomorrow chapter in your community. Check back soon for application materials and guidelines.</p>
-    <br>
-    <a href="opportunities.html" class="btn">Back to Opportunities</a>
-  </section>
+    <div class="bento-grid">
+      <div class="bento-box large">
+        <h2>Chapter Requirements</h2>
+        <p>What you need to start a Hearts of Tomorrow chapter:</p>
+        <ul style="list-style: none; margin-top: 1rem;">
+          <li>👥 5+ Committed Team Members</li>
+          <li>👨‍🏫 Faculty Advisor</li>
+          <li>📝 School/Organization Approval</li>
+          <li>❤️ Passion for Heart Health</li>
+        </ul>
+      </div>
+
+      <div class="chart-container">
+        <h3>Chapter Success Rate</h3>
+        <div class="circle-chart" id="successChart">
+          <svg viewBox="0 0 100 100">
+            <circle class="background" cx="50" cy="50" r="45"/>
+            <circle class="progress" cx="50" cy="50" r="45" data-percentage="92"/>
+          </svg>
+          <div class="chart-label">
+            <div class="metric-value">92%</div>
+            <div class="metric-label">Active After 1 Year</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bento-box medium">
+        <h2>Resources Provided</h2>
+        <ul style="list-style: none; margin-top: 1rem;">
+          <li>📚 Training Materials</li>
+          <li>🎯 Event Planning Guide</li>
+          <li>💻 Digital Tools Access</li>
+          <li>🤝 Mentorship Support</li>
+        </ul>
+      </div>
+
+      <div class="bento-box medium">
+        <h2>Timeline</h2>
+        <ul style="list-style: none; margin-top: 1rem;">
+          <li>📋 Application Review: 1 Week</li>
+          <li>🎓 Training Period: 2 Weeks</li>
+          <li>🚀 Chapter Launch: Week 4</li>
+        </ul>
+      </div>
+
+      <div class="metric-card">
+        <h3>Active Chapters</h3>
+        <div class="metric-value" id="chapterCount">25</div>
+        <div class="metric-label">And Growing</div>
+      </div>
+
+      <div class="metric-card">
+        <h3>Students Involved</h3>
+        <div class="metric-value" id="studentCount">250</div>
+        <div class="metric-label">Chapter Members</div>
+      </div>
+
+      <div class="metric-card">
+        <h3>Communities</h3>
+        <div class="metric-value" id="communityCount">20</div>
+        <div class="metric-label">States Reached</div>
+      </div>
+
+      <a href="opportunities.html" class="bento-box small">
+        <h2>Back</h2>
+        <p>Return to opportunities</p>
+      </a>
+    </div>
+  </div>
 
   <footer>
     <p>&copy; 2025 Hearts of Tomorrow. All rights reserved.</p>
   </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize circle chart
+      const circle = document.querySelector('.circle-chart .progress');
+      const percentage = circle.getAttribute('data-percentage');
+      const circumference = 2 * Math.PI * 45;
+      circle.style.strokeDasharray = `${(percentage * circumference) / 100} ${circumference}`;
+
+      // Counter animation
+      const counters = document.querySelectorAll('.metric-value');
+      counters.forEach(counter => {
+        const target = parseInt(counter.innerText);
+        let count = 0;
+        const duration = 2000;
+        const increment = target / (duration / 16);
+
+        const updateCount = () => {
+          if (count < target) {
+            count += increment;
+            counter.innerText = Math.round(count);
+            requestAnimationFrame(updateCount);
+          } else {
+            counter.innerText = target;
+          }
+        };
+
+        updateCount();
+      });
+    });
+  </script>
 </body>
 </html> 

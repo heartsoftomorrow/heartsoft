@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Counter animation code
   const counters = document.querySelectorAll('.counter');
-  const speed = 200; // The lower the faster
+  const speed = 200;
 
   const updateCount = (counter) => {
     const target = +counter.getAttribute('data-target');
@@ -30,4 +31,4 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   counters.forEach(counter => observer.observe(counter));
-});  
+}); 
